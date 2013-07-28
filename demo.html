@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Demo for validate-email.js</title>
+    <script type="text/javascript" src="validate-email.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="validate-email.min.css">
+    <style type="text/css">
+        input {
+            background-color: #F0F0FA;
+            width: 250px;
+        }
+
+        .js-validate-email-error.bold {
+            font-weight: bold;
+            border: 2px dashed red;
+            background: #F0F0FA;
+        }
+
+        .js-validate-email-error.italic {
+            font-style: italic;
+            border: 2px dotted darkred;
+            background: #F0F0FA;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Demo for validate-email.js</h1>
+</header>
+
+<section id="body">
+    <form action="">
+        <p><b>validate-email.js</b> is a pure JavaScript (no dependencies)
+            solution to make HTML email inputs self-validating.</p>
+
+        <h2>Basic Usage</h2>
+        <p>The basic email validation functionality can be added simply by
+            including <b>validate-email.js</b> anywhere in your document and
+            adding CSS class 'js-validate-email' or type 'email' to all inputs
+            you want validating. It works like this:</p>
+
+        <p>
+            <label><input type="text" class="js-validate-email"
+                          value="user@host.com">
+                class="js-validate-email"</label>
+            <br/>
+            <label><input type="email"
+                          value="user@host.zz">
+                type="email"</label>
+        </p>
+
+        <h2>Stricter / Looser Usage</h2>
+
+        <p>By default, email domains are validated in a semi-strict internet
+            format. A short list of <abbr title="Top Level Domains">TLDs</abbr>
+            is checked, and any two letter TLD is assumed to be a valid country
+            code. Emails can be validated against a looser or stricter domain format.
+            To skip TLD validation and accept local (one part) domains, apply
+            CSS class 'js-validate-email-looser' to the input. Likewise, to
+            enforce known TLDs, apply css class 'js-validate-email-stricter'
+            to the input. When using stricter testing, it is important to
+            frequently update the list of TLDs.</p>
+
+        <p>
+            <label><input type="text" class="js-validate-email-looser"
+                          value="user@host">
+                class="js-validate-email-looser"</label>
+            <br/>
+            <label><input type="text" class="js-validate-email-stricter"
+                          value="user@host.cc">
+                class="js-validate-email-stricter"</label>
+        </p>
+
+        <h2>Styling Errors</h2>
+        <p>Inputs with invalid emails can be styled by applying styles to the
+            error class. By default this class is 'js-validate-email-error'.
+        </p>
+
+        <p>
+            <label><input type="text" value="Invalid@@address.com"
+                          class="js-validate-email js-validate-email-error bold">
+                .js-validate-email-error {
+                font-weight: bold; border: 2px dashed red;
+                }</label>
+            <br/>
+            <label><input type="text" value="Invalid@@address.com"
+                          class="js-validate-email js-validate-email-error italic">
+                .js-validate-email-error {
+                font-style: italic; border: 2px dotted darkred;
+                }</label>
+        </p>
+    </form>
+</section>
+<footer>
+</footer>
+</body>
+</html>
