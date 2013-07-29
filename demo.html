@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Demo for validate-phone.js</title>
+    <script type="text/javascript" src="validate-phone.js"></script>
+    <link rel="stylesheet" type="text/css" href="validate-phone.css">
+    <style type="text/css">
+        input {
+            background-color: #F0F0FA;
+            width: 250px;
+        }
+
+        .js-validate-phone-error.bold {
+            font-weight: bold;
+            border: 2px dashed red;
+            background: #F0F0FA;
+        }
+
+        .js-validate-phone-error.italic {
+            font-style: italic;
+            border: 2px dotted darkred;
+            background: #F0F0FA;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Demo for validate-phone.js</h1>
+</header>
+
+<section id="body">
+    <form action="">
+        <p><b>validate-phone.js</b> is a pure JavaScript (no dependencies)
+            solution to make HTML phone inputs self-validating.</p>
+
+        <h2>Basic Usage</h2>
+        <p>The basic phone validation functionality can be added simply by
+            including <b>validate-phone.js</b> anywhere in your document and
+            adding CSS class 'js-validate-phone' or type 'phone' to all inputs
+            you want validating. It works like this:</p>
+
+        <p>
+            <label><input type="text" class="js-validate-phone"
+                          value="201.555.1212">
+                class="js-validate-phone"</label>
+            <br/>
+            <label><input type="tel"
+                          value="(201)555-1212">
+                type="tel"</label>
+        </p>
+
+        <h2>Stricter / Looser Usage</h2>
+
+        <p>By default, phone numbers are validated in a loose <abbr
+            title="North American Numbering Plan Administration">NANPA</abbr>
+            format. A short list of rules is checked. Phones can be 
+            validated against a looser or stricter format. To accept letters
+            for phonewords, add CSS class 'js-validate-phone-wordy' to the 
+            input. Likewise, to enforce known area codes, apply css class 
+            'js-validate-phone-strict' to the input. When using strict 
+            testing, it is important to frequently update the list of area 
+            codes.</p>
+
+        <p>
+            <label><input type="text" class="js-validate-phone-strict"
+                          value="2234567890">
+                class="js-validate-phone-strict"</label>
+            <br/>
+            <label><input type="text" class="js-validate-phone-wordy"
+                          value="1-800-generic">
+                class="js-validate-phone-wordy"</label>
+        </p>
+
+        <h2>Styling Errors</h2>
+        <p>Inputs with invalid phones can be styled by applying styles to the
+            error class. By default this class is 'js-validate-phone-error'.
+        </p>
+
+        <p>
+            <label><input type="text" value="123456"
+                          class="js-validate-phone js-validate-phone-error bold">
+                .js-validate-phone-error {
+                font-weight: bold; border: 2px dashed red;
+                }</label>
+            <br/>
+            <label><input type="text" value="9110123456"
+                          class="js-validate-phone js-validate-phone-error italic">
+                .js-validate-phone-error {
+                font-style: italic; border: 2px dotted darkred;
+                }</label>
+        </p>
+    </form>
+</section>
+<footer>
+</footer>
+</body>
+</html>
