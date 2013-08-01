@@ -87,11 +87,13 @@ function validatePhone(phone, beStrict, beWordy) {
             return false;
         }
 
+        validatePhone.errno = 0;
         return phone.substr(0, 3) + '-' + phone.substr(3, 3) + '-' + phone.substr(6, 4);
     }
 
     // Local american phone number
-    if (!beStrict && phone.length == 7) { 
+    if (!beStrict && phone.length == 7) {
+        validatePhone.errno = 0;
         return phone.substr(0, 3) + '-' + phone.substr(3, 4);
     }
 
@@ -117,7 +119,6 @@ validatePhone.input = function(Input, beStrict, beWordy) {
     }
 
     Input.className = Input.className.replace(validatePhone.errorClass, '');
-    Input.title = '';
 
     var phone = validatePhone(Input.value, beStrict, beWordy);
     if ('' != Input.value && false === phone) {
@@ -141,6 +142,12 @@ validatePhone.init = function() {
         });
     }
 };
+
+/**
+ * Hold the error number produced by validatePhone, or 0 for no error
+ * @type {number}
+ */
+validatePhone.errno = 0;
 
 /**
  * validatePhone response code messages
