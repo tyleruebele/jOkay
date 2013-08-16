@@ -1,0 +1,6 @@
+.js-ok-date-error {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABbElEQVR42oVTsYoCMRANrIVwloJgZWFhIV5hY7d/IRaChSBWomCjlZ9gZXGIxSFiJVaH3A/YWIiFWMh+guUVFvtuJtndbHbjXeCx2bz3JslkRojEAFD3ff+DvleCF+AarNXFq0HkG4k+cbsB4zFQrQKlkgLPeY04qSFt0uwQvjCbAZkMwEv5PDAaAZ2O+mcwxxrWkiceYIHlUgsZhwOi0euZHGvJE5rfcb8D2awpulx0gMnE5FjLHvIKeafh0BQwVisdoNlM8+Rhr5BZLpfTgm5XmZ9PoFhM8+whr5CiJMmo1UBbkMSz8yKwvgzg0MM8HsB2+28AD5WKXXA+A9OpnWMPX0Emsd+3n4DN7bY9AHnCJLryScICCrFeqyRyHlotk2OtekY3rIWNrLC46HjUzzgYmJyqxk2yD74xn+uTNBrA6QTs90ChoHcmjdTa+iFqJj5yLqd35Dmv6WZy/upKl7Aj/Og7yPkuunNs/AKI0GRZNeIfCAAAAABJRU5ErkJggg==);
+    background-repeat: no-repeat;
+    background-position: right top;
+    border-color: red;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>jOkay: Demo for ok-date.js</title>
+    <script type="text/javascript" src="../js/ok-date.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/ok-date.css">
+    <style type="text/css">
+        input {
+            background-color: #F0F0FA;
+            width: 250px;
+        }
+
+        .js-ok-date-error.bold {
+            font-weight: bold;
+            border: 2px dashed red;
+            background: #F0F0FA;
+        }
+
+        .js-ok-date-error.italic {
+            font-style: italic;
+            border: 2px dotted darkred;
+            background: #F0F0FA;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Demo for ok-date.js</h1>
+</header>
+
+<section id="body">
+    <form action="#">
+        <p><b>ok-date.js</b> is a pure JavaScript (no dependencies)
+            solution to make HTML date inputs self-validating.</p>
+
+        <h2>Basic Usage</h2>
+        <p>The basic date validation functionality can be added simply by
+            including <b>ok-date.js</b> anywhere in your document and
+            adding CSS class 'js-ok-date' or type 'date' to all inputs
+            you want validating. It works like this:</p>
+
+        <p>
+            <label><input type="text" class="js-ok-date"
+                          value="8/11/2013">
+                class="js-ok-date"</label>
+            <br/>
+            <label><input type="date"
+                          value="2013-08-11">
+                type="date"</label>
+        </p>
+
+        <h2>Alternate Date Formats</h2>
+        
+        <p>Three parsing and output date formats are supported: Month-first
+            (American), Year-first (ISO), and Date-first (Most of Earth).
+            By default, dates will be output in ISO format, but if another
+            three-part format is input, it will attempt Month-first parsing.
+        </p>
+        <label><input type="text" class="js-ok-date-mdy"
+                      value="8/11/2013">
+            class="js-ok-date-mdy"</label>
+        <br/>
+        <label><input type="text" class="js-ok-date-ymd"
+                      value="8/11/2013">
+            class="js-ok-date-ymd"</label>
+        <br/>
+        <label><input type="text" class="js-ok-date-dmy"
+                      value="8/11/2013">
+            class="js-ok-date-dmy"</label>
+        <br/>
+
+        <p>Additionally, a variety of (English) spoken formats are supported.
+            Try these:</p>
+        <ul>
+            <li><b>Now</b></li>
+            <li><b>Tod</b>ay</li>
+            <li><b>tom</b>orrow</li>
+            <li><b>ye</b>sterday</li>
+
+            <li><b>6</b>th</li>
+            <li><b>6</b>th <b>O</b>ctober</li>
+            <li><b>10</b>th <b>F</b>eb 20<b>04</b></li>
+
+            <li><b>F</b>eb <b>10</b>th 20<b>04</b></li>
+            <li><b>F</b>eb <b>10</b>th</li>
+            <li><b>next F</b>riday</li>
+            <li><b>last F</b>riday</li>
+
+            <li>0<b>4/</b>0<b>8</b>/2006</li>
+            <li><b>2004-</b>0<b>4-</b>0<b>4</b> (ISO: yyyy-mm-dd)</li>
+            <li>0<b>4-</b>0<b>4-04</b> (mm-dd-yy | dd-mm-yy)</li>
+
+            <li>0<b>4-</b>0<b>4</b> (mm-dd | dd-mm)</li>
+            <li><b>F</b>riday <b>week</b></li>
+        </ul>
+        <p>Try these special keys:</p>
+
+        <ul>
+            <li>Right Arrow - sets blank inputs to today</li>
+            <li>Up Arrow - increase day by one</li>
+            <li>Down Arrow - decrease day by one</li>
+        </ul>
+
+
+        <h2>Styling Errors</h2>
+        <p>Inputs with invalid dates can be styled by applying styles to the
+            error class. By default this class is 'js-ok-date-error'.
+        </p>
+
+        <p>
+            <label><input type="text" value="13-13-13"
+                          class="js-ok-date js-ok-date-error bold">
+                .js-ok-date-error {
+                font-weight: bold; border: 2px dashed red;
+                }</label>
+            <br/>
+            <label><input type="text" value="12-2012-12"
+                          class="js-ok-date js-ok-date-error italic">
+                .js-ok-date-error {
+                font-style: italic; border: 2px dotted darkred;
+                }</label>
+        </p>
+    </form>
+</section>
+<footer>
+</footer>
+</body>
+</html>
