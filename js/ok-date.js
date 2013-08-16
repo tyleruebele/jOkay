@@ -500,7 +500,7 @@ okDate.format = function(InDate, endian) {
     return year + '-' + month + '-' + date;
 };
 
-// Run validatePhone.init() when the page loads
+// Run okDate.init() when the page loads
 window.addEventListener
     ? window.addEventListener('load', okDate.init, false)
     : window.attachEvent && window.attachEvent('onload', okDate.init)
