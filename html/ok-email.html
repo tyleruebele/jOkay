@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Demo for ok-email.js</title>
+    <script type="text/javascript" src="../min.js/ok-email.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../min.css/ok-email.min.css">
+    <style type="text/css">
+        input {
+            background-color: #F0F0FA;
+            width: 250px;
+        }
+
+        .js-ok-email-error.bold {
+            font-weight: bold;
+            border: 2px dashed red;
+            background: #F0F0FA;
+        }
+
+        .js-ok-email-error.italic {
+            font-style: italic;
+            border: 2px dotted darkred;
+            background: #F0F0FA;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Demo for ok-email.js</h1>
+</header>
+
+<section id="body">
+    <h2>ok-email</h2>
+    <p>A pure JavaScript (no dependencies) solution to make HTML email inputs self-validating</p>
+
+    <h2>Usage</h2>
+    <ol>
+        <li>Include ok-email.js anywhere in your page, it runs on load.</li>
+        <li>Add CSS class 'js-ok-email' to all email inputs you want validated.</li>
+        <li>Optionally include ok-email.css (or its contents) in your styles.</li>
+    </ol>
+
+    <h2>Support</h2>
+    <ul>
+        <li>Tested successfully in FireFox Win/Mac.</li>
+        <li>Tested successfully in Chrome Win/Mac.</li>
+        <li>Tested successfully in Safari Win/Mac.</li>
+        <li>Tested successfully in Internet Explorer 10.</li>
+    </ul>
+
+    <h2>License</h2>
+    <p>Released under MIT license, see included file LICENSE
+    or http://opensource.org/licenses/MIT</p>
+
+    <form action="">
+        <h2>Basic Usage</h2>
+        <p>The basic email validation functionality can be added simply by
+            including <b>ok-email.js</b> anywhere in your document and
+            adding CSS class 'js-ok-email' or type 'email' to all inputs
+            you want validating. It works like this:</p>
+
+        <p>
+            <label><input type="text" class="js-ok-email"
+                          value="user@host.com">
+                class="js-ok-email"</label>
+            <br/>
+            <label><input type="email"
+                          value="user@host.zz">
+                type="email"</label>
+        </p>
+
+        <h2>Stricter / Looser Usage</h2>
+
+        <p>By default, email domains are validated in a semi-strict internet
+            format. A short list of <abbr title="Top Level Domains">TLDs</abbr>
+            is checked, and any two letter TLD is assumed to be a valid country
+            code. Emails can be validated against a looser or stricter domain format.
+            To skip TLD validation and accept local (one part) domains, apply
+            CSS class 'js-ok-email-looser' to the input. Likewise, to
+            enforce known TLDs, apply css class 'js-ok-email-stricter'
+            to the input. When using stricter testing, it is important to
+            frequently update the list of TLDs.</p>
+
+        <p>
+            <label><input type="text" class="js-ok-email-looser"
+                          value="user@host">
+                class="js-ok-email-looser"</label>
+            <br/>
+            <label><input type="text" class="js-ok-email-stricter"
+                          value="user@host.cc">
+                class="js-ok-email-stricter"</label>
+        </p>
+
+        <h2>Styling Errors</h2>
+        <p>Inputs with invalid emails can be styled by applying styles to the
+            error class. By default this class is 'js-ok-email-error'.
+        </p>
+
+        <p>
+            <label><input type="text" value="Invalid@@address.com"
+                          class="js-ok-email js-ok-email-error bold">
+                .js-ok-email-error {
+                font-weight: bold; border: 2px dashed red;
+                }</label>
+            <br/>
+            <label><input type="text" value="Invalid@@address.com"
+                          class="js-ok-email js-ok-email-error italic">
+                .js-ok-email-error {
+                font-style: italic; border: 2px dotted darkred;
+                }</label>
+        </p>
+    </form>
+</section>
+<footer>
+</footer>
+</body>
+</html>
