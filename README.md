@@ -13,3 +13,7 @@ ok-email
 --------
 Email validation function and form input event handlers for easy validation
 
+ok-phone
+--------
+phone validation function and form input event handlers for easy validation
+

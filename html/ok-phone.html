@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Demo for ok-phone.js</title>
+    <script type="text/javascript" src="../min.js/ok-phone.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../min.css/ok-phone.min.css">
+    <style type="text/css">
+        input {
+            background-color: #F0F0FA;
+            width: 250px;
+        }
+
+        .js-ok-phone-error.bold {
+            font-weight: bold;
+            border: 2px dashed red;
+            background: #F0F0FA;
+        }
+
+        .js-ok-phone-error.italic {
+            font-style: italic;
+            border: 2px dotted darkred;
+            background: #F0F0FA;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Demo for ok-phone.js</h1>
+</header>
+
+<section id="body">
+    <h2>ok-phone</h2>
+    <p>A pure JavaScript (no dependencies) solution to make HTML phone inputs self-validating</p>
+
+    <h2>Usage</h2>
+    <ol>
+        <li>Include ok-phone.js anywhere in your page, it runs on load.</li>
+        <li>Add CSS class 'js-ok-phone' to all phone inputs you want validated.</li>
+        <li>Optionally include ok-phone.css (or its contents) in your styles.</li>
+    </ol>
+
+    <h2>Support</h2>
+    <ul>
+        <li>Tested successfully in FireFox Win/Mac.</li>
+        <li>Tested successfully in Chrome Win/Mac.</li>
+        <li>Tested successfully in Safari Win/Mac.</li>
+        <li>Tested successfully in Internet Explorer 10.</li>
+    </ul>
+
+    <h2>License</h2>
+    <p>Released under MIT license, see included file LICENSE
+        or http://opensource.org/licenses/MIT</p>
+
+    <form action="#">
+        <h2>Basic Usage</h2>
+        <p>The basic phone validation functionality can be added simply by
+            including <b>ok-phone.js</b> anywhere in your document and
+            adding CSS class 'js-ok-phone' or type 'phone' to all inputs
+            you want validating. It works like this:</p>
+
+        <p>
+            <label><input type="text" class="js-ok-phone"
+                          value="201.555.1212">
+                class="js-ok-phone"</label>
+            <br/>
+            <label><input type="tel"
+                          value="(201)555-1212">
+                type="tel"</label>
+        </p>
+
+        <h2>Stricter / Looser Usage</h2>
+
+        <p>By default, phone numbers are validated in a loose <abbr
+            title="North American Numbering Plan Administration">NANPA</abbr>
+            format. A short list of rules is checked. Phones can be
+            validated against a looser or stricter format. To accept letters
+            for phonewords, add CSS class 'js-ok-phone-wordy' to the
+            input. Likewise, to enforce known area codes, apply css class
+            'js-ok-phone-strict' to the input. When using strict
+            testing, it is important to frequently update the list of area
+            codes.</p>
+
+        <p>
+            <label><input type="text" class="js-ok-phone-strict"
+                          value="2234567890">
+                class="js-ok-phone-strict"</label>
+            <br/>
+            <label><input type="text" class="js-ok-phone-wordy"
+                          value="1-800-generic">
+                class="js-ok-phone-wordy"</label>
+        </p>
+
+        <h2>Styling Errors</h2>
+        <p>Inputs with invalid phones can be styled by applying styles to the
+            error class. By default this class is 'js-ok-phone-error'.
+        </p>
+
+        <p>
+            <label><input type="text" value="123456"
+                          class="js-ok-phone js-ok-phone-error bold">
+                .js-ok-phone-error {
+                font-weight: bold; border: 2px dashed red;
+                }</label>
+            <br/>
+            <label><input type="text" value="9110123456"
+                          class="js-ok-phone js-ok-phone-error italic">
+                .js-ok-phone-error {
+                font-style: italic; border: 2px dotted darkred;
+                }</label>
+        </p>
+    </form>
+</section>
+<footer>
+</footer>
+</body>
+</html>
