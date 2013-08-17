@@ -4,7 +4,7 @@
  *  IPv4 inputs self-validating
  *
  * Copyright (c) 2013 Tyler Uebele
- * Released under the MIT license.  See included LICENSE.txt
+ * Released under the MIT license.  See included LICENSE
  *  or http://opensource.org/licenses/MIT
  *
  * latest version available at https://github.com/tyleruebele/jOkay
@@ -14,7 +14,10 @@
  * Validate ipv4 string by calling `okIPv4()`
  * Style errors by styling class in `okIPv4.errorClass`
  *
- * 2013-08-16 original version
+ * History
+ * 2013-08-16 : original version
+ *
+ * @link http://github.com/tyleruebele/jOkay
  */
 
 /**

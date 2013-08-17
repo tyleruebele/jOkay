@@ -4,22 +4,24 @@
  *  phone inputs self-validating
  *
  * Copyright (c) 2013 Tyler Uebele
- * Released under the MIT license.  See included LICENSE.txt
+ * Released under the MIT license.  See included LICENSE
  *  or http://opensource.org/licenses/MIT
  *
- * latest version available at https://github.com/tyleruebele/ok-phone
+ * latest version available at https://github.com/tyleruebele/jOkay
  *
  * Attaches itself to elements indicated in `okPhone.query`
  * Manually attach to elements by adding `onchange="okPhone.input"`
  * Validate phone string by calling `okPhone()`
  * Style errors by styling class in `okPhone.errorClass`
  *
- * 2007-04-11 original version
- * 2007-04-20 revised
- * 2013-07-29 refactored for ease of use
+ * History:
+ * 2007-04-11 : original version
+ * 2007-04-20 : revised
+ * 2013-07-29 : refactored for ease of use
+ * 2013-08-16 : renamed ok-phone, added to jOkay
  *
  * @link http://www.nanpa.com/enas/geoAreaCodeNumberReport.do
- * @link http://github.com/tyleruebele/ok-phone
+ * @link http://github.com/tyleruebele/jOkay
  */
 
 /**

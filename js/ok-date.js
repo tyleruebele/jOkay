@@ -18,6 +18,8 @@
  * 2006-12-07 : Initial version
  * 2007-05-17 : revised
  * 2013-08-11 : refactored to stand-alone script, added to jOkay
+ *
+ * @link http://github.com/tyleruebele/jOkay
  */
 
 /**

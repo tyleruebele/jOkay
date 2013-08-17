@@ -4,24 +4,26 @@
  *  email inputs self-validating
  *
  * Copyright (c) 2013 Tyler Uebele
- * Released under the MIT license.  See included LICENSE.txt
+ * Released under the MIT license.  See included LICENSE
  *  or http://opensource.org/licenses/MIT
  *
- * latest version available at https://github.com/tyleruebele/ok-email
+ * latest version available at https://github.com/tyleruebele/jOkay
  * 
  * Attaches itself to elements indicated in `okEmail.query`
  * Manually attach to elements by adding `onchange="okEmail.input"`
  * Validate email string by calling `okEmail()`
  * Style errors by styling class in `okEmail.errorClass`
  * 
- * 2007-04-11 original version
- * 2007-04-20 revised
- * 2013-07-28 refactored for ease of use
- * 2013-07-31 move error codes to `errno` and return false on failure
+ * History:
+ * 2007-04-11 : original version
+ * 2007-04-20 : revised
+ * 2013-07-28 : refactored for ease of use
+ * 2013-07-31 : move error codes to `errno` and return false on failure
+ * 2013-08-16 : renamed ok-email, added to jOkay
  * 
  * @link http://data.iana.org/TLD/tlds-alpha-by-domain.txt
  * @link http://www.icann.org/registries/listing.html
- * @link http://github.com/tyleruebele/ok-email
+ * @link http://github.com/tyleruebele/jOkay
  */
 
 /**
