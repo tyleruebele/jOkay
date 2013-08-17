@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Demo for ok-ipv4.js</title>
+    <script type="text/javascript" src="../min.js/ok-ipv4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../min.css/ok-ipv4.min.css">
+    <style type="text/css">
+        input {
+            background-color: #F0F0FA;
+            width: 250px;
+        }
+
+        .js-ok-ipv4-error.bold {
+            font-weight: bold;
+            border: 2px dashed red;
+            background: #F0F0FA;
+        }
+
+        .js-ok-ipv4-error.italic {
+            font-style: italic;
+            border: 2px dotted darkred;
+            background: #F0F0FA;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Demo for ok-ipv4.js</h1>
+</header>
+
+<section id="body">
+    <h2>ok-ipv4</h2>
+    <p>A pure JavaScript (no dependencies) solution to make HTML ipv4 inputs self-validating</p>
+
+    <h2>Usage</h2>
+    <ol>
+        <li>Include ok-ipv4.js anywhere in your page, it runs on load.</li>
+        <li>Add CSS class 'js-ok-ipv4' to all ipv4 inputs you want validated.</li>
+        <li>Optionally include ok-ipv4.css (or its contents) in your styles.</li>
+    </ol>
+
+    <h2>Support</h2>
+    <ul>
+        <li>Tested successfully in FireFox Win/Mac.</li>
+        <li>Tested successfully in Chrome Win/Mac.</li>
+        <li>Tested successfully in Safari Win/Mac.</li>
+        <li>Tested successfully in Internet Explorer 10.</li>
+    </ul>
+
+    <h2>License</h2>
+    <p>Released under MIT license, see included file LICENSE
+        or http://opensource.org/licenses/MIT</p>
+
+    <form action="#">
+        <h2>Basic Usage</h2>
+        <p>The basic ipv4 validation functionality can be added simply by
+            including <b>ok-ipv4.js</b> anywhere in your document and
+            adding CSS class 'js-ok-ipv4' or type 'ipv4' to all inputs
+            you want validating. HTML5 does not specify a type for IP 
+            addresses, so browsers will treat them as type 'text'.
+            It works like this:</p>
+
+        <p>
+            <label><input type="text" class="js-ok-ipv4"
+                          value="8.8.8.8">
+                class="js-ok-ipv4"</label>
+            <br/>
+            <label><input type="ipv4"
+                          value="8.8.4.4">
+                type="ipv4"</label>
+        </p>
+
+        <h2>Stricter / Looser Usage</h2>
+
+        <p>By default, IPv4 addresses are validated in a loose dotted-decimal
+            format, allowing any address from '0.0.0.0' to '255.255.255.255'.
+            CSS class 'js-ok-ipv4-loose' is an explicit alias for this default
+            behavior.  To require public addresses, apply css class 
+            'js-ok-ipv4-strict' to the input.  Below is such an input with a 
+            private address entered.</p>
+
+        <p>
+            <label><input type="text" class="js-ok-ipv4-strict"
+                          value="192.168.2.2">
+                class="js-ok-ipv4-strict"</label>
+            <br/>
+            <label><input type="text" class="js-ok-ipv4-loose"
+                          value="0.0.0.0">
+                class="js-ok-ipv4-loose"</label>
+        </p>
+
+        <h2>Styling Errors</h2>
+        <p>Inputs with invalid emails can be styled by applying styles to the
+            error class. By default this class is 'js-ok-ipv4-error'.
+        </p>
+
+        <p>
+            <label><input type="text" value="1.2.3"
+                          class="js-ok-ipv4 js-ok-ipv4-error bold">
+                .js-ok-ipv4-error {
+                font-weight: bold; border: 2px dashed red;
+                }</label>
+            <br/>
+            <label><input type="text" value="256.13.14.15"
+                          class="js-ok-ipv4 js-ok-ipv4-error italic">
+                .js-ok-ipv4-error {
+                font-style: italic; border: 2px dotted darkred;
+                }</label>
+        </p>
+    </form>
+</section>
+<footer>
+</footer>
+</body>
+</html>
