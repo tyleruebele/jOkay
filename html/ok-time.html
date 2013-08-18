@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Demo for ok-time.js</title>
+    <script type="text/javascript" src="../min.js/ok-time.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../min.css/ok-time.min.css">
+    <style type="text/css">
+        input {
+            background-color: #F0F0FA;
+            width: 250px;
+        }
+
+        .js-ok-time-error.bold {
+            font-weight: bold;
+            border: 2px dashed red;
+            background: #F0F0FA;
+        }
+
+        .js-ok-time-error.italic {
+            font-style: italic;
+            border: 2px dotted darkred;
+            background: #F0F0FA;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Demo for ok-time.js</h1>
+</header>
+
+<section id="body">
+    <h2>ok-time</h2>
+    <p>A pure JavaScript (no dependencies) solution to make HTML time inputs self-validating</p>
+
+    <h2>Usage</h2>
+    <ol>
+        <li>Include ok-time.js anywhere in your page, it runs on load.</li>
+        <li>Add CSS class 'js-ok-time' to all time inputs you want validated.</li>
+        <li>Optionally include ok-time.css (or its contents) in your styles.</li>
+    </ol>
+
+    <h2>Support</h2>
+    <ul>
+        <li>Tested successfully in FireFox Win/Mac.</li>
+        <li>Tested successfully in Chrome Win/Mac.</li>
+        <li>Tested successfully in Safari Win/Mac.</li>
+        <li>Tested successfully in Internet Explorer 8.</li>
+    </ul>
+
+    <h2>License</h2>
+    <p>Released under MIT license, see included file LICENSE
+        or http://opensource.org/licenses/MIT</p>
+
+    <form action="#">
+        <h2>Basic Usage</h2>
+        <p>The basic time validation functionality can be added simply by
+            including <b>ok-time.js</b> anywhere in your document and
+            adding CSS class 'js-ok-time' or type 'time' to all inputs
+            you want validating. Some browsers do not support time inputs
+            and will treat them as type 'text'.
+            It works like this:</p>
+
+        <p>
+            <label><input type="text" class="js-ok-time"
+                          value="">
+                class="js-ok-time"</label>
+            <br/>
+            <label><input type="time"
+                          value="17:30:00">
+                type="time"</label>
+        </p>
+
+        <h2>24 Hour Usage</h2>
+
+        <p>By default, times are reformatted in the 12 hour format.
+            CSS class 'js-ok-time-12' is an explicit alias for this default
+            behavior.  To render 24 hour times, apply css class 
+            'js-ok-time-24' to the input.  Below one of each input with a 
+            24 hour time entered.</p>
+
+        <p>
+            <label><input type="text" class="js-ok-time-24"
+                          value="17:30">
+                class="js-ok-time-24"</label>
+            <br/>
+            <label><input type="text" class="js-ok-time-12"
+                          value="17:30">
+                class="js-ok-time-12"</label>
+        </p>
+
+        <p>Try these:</p>
+        <ul>
+            <li><b>Now</b></li>
+            <li><b>Noo</b>n</li>
+            <li><b>Midd</b>ay</li>
+            <li><b>Midn</b>ight</li>
+
+            <li>0<b>530</b></li>
+            <li><b>1730</b></li>
+            <li><b>6a</b>m</li>
+            <li><b>4p</b>m</li>
+
+            <li>0<b>4:</b>0<b>4</b> (hh:mm)</li>
+            <li>0<b>4:</b>0<b>4:04</b> (hh:mm:ss)</li>
+        </ul>
+        <p>Try these special keys:</p>
+        <ul>
+            <li>Up Arrow - Increase one minute</li>
+            <li>Shift + Up Arrow - Increase one hour</li>
+            <li>Down Arrow - Decrease one minute hour</li>
+            <li>Shift + Down Arrow - Decrease one hour</li>
+            <li>Right Arrow - Set blank input to current time</li>
+        </ul>
+        
+        <h2>Styling Errors</h2>
+        <p>Inputs with invalid values can be styled by applying styles to the
+            error class. By default this class is 'js-ok-time-error'.
+        </p>
+
+        <p>
+            <label><input type="text" value="25:00"
+                          class="js-ok-time js-ok-time-error bold">
+                .js-ok-time-error {
+                font-weight: bold; border: 2px dashed red;
+                }</label>
+            <br/>
+            <label><input type="text" value="13:72"
+                          class="js-ok-time js-ok-time-error italic">
+                .js-ok-time-error {
+                font-style: italic; border: 2px dotted darkred;
+                }</label>
+        </p>
+    </form>
+</section>
+<footer>
+</footer>
+</body>
+</html>
