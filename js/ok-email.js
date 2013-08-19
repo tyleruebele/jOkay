@@ -10,7 +10,7 @@
  * latest version available at https://github.com/tyleruebele/jOkay
  * 
  * Attaches itself to elements indicated in `okEmail.query`
- * Manually attach to elements by adding `onchange="okEmail.input"`
+ * Manually attach to elements by adding `onchange="okEmail.blur"`
  * Validate email string by calling `okEmail()`
  * Style errors by styling class in `okEmail.errorClass`
  * 
@@ -139,12 +139,13 @@ function okEmail(email, beStrict, beStricter) {
 
 /**
  * Input event handler, adds email validation to selected inputs
- * 
- * @param Input
- * @param beStrict
- * @param beStricter
+ *
+ * @param event      JS Event object
+ * @param Input      DOM object for triggering input
+ * @param beStrict   Require internet email
+ * @param beStricter Check TLD against full list
  */
-okEmail.input = function(Input, beStrict, beStricter) {
+okEmail.blur = function(event, Input, beStrict, beStricter) {
     // If beStrict was not passed, seek counter-indicative className
     if ('undefined' === typeof beStrict) {
         beStrict = !Input.className.match(/js-ok-email-looser/);
@@ -173,9 +174,16 @@ okEmail.init = function() {
     // Find all specified inputs
     var Inputs = document.querySelectorAll(okEmail.query);
     for (var i = Inputs.length - 1; i >= 0; i--) {
-        Inputs[i].addEventListener('blur', function() {
-            okEmail.input(this);
-        });
+        if (window.addEventListener) {
+            Inputs[i].addEventListener('blur', function(event) {
+                okEmail.blur(event, this);
+            });
+        } else if (window.attachEvent) {
+            Inputs[i].attachEvent('onblur', function(event) {
+                event = event || window.event;
+                okEmail.blur(event, event.target || event.srcElement);
+            });
+        }
     }
 };
 

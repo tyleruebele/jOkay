@@ -397,15 +397,25 @@ okDate.init = function() {
     // Find all specified inputs
     var Inputs = document.querySelectorAll(okDate.query);
     for (var i = Inputs.length - 1; i >= 0; i--) {
-        Inputs[i].addEventListener('blur', function(event) {
-            event.preventDefault();
-            okDate.blur(event, this);
-        });
+        // If the browser supports date inputs, don't interfere
         if ('text' == Inputs[i].type) {
-            Inputs[i].addEventListener('keyup', function(event) {
-                event.preventDefault();
-                okDate.key(event, this);
-            });
+            if (window.addEventListener) {
+                Inputs[i].addEventListener('blur', function(event) {
+                    okDate.blur(event, this);
+                });
+                Inputs[i].addEventListener('keyup', function(event) {
+                    okDate.key(event, this);
+                });
+            } else if (window.attachEvent) {
+                Inputs[i].attachEvent('onblur', function(event) {
+                    event = event || window.event;
+                    okDate.blur(event, event.target || event.srcElement);
+                });
+                Inputs[i].attachEvent('onkeyup', function(event) {
+                    event = event || window.event;
+                    okDate.key(event, event.target || event.srcElement);
+                });
+            }
         }
     }
 };
@@ -456,22 +466,36 @@ okDate.key = function(event, Input, endian) {
     switch (key) {
         case 38: // up
             OutDate = okDate(Input.value || 'today', endian);
-            OutDate.setDate(OutDate.getDate() + 1);
+            if (false === OutDate) {
+                break;
+            }
+            if (event.shiftKey) {
+                OutDate.setMonth(OutDate.getMonth() + 1);
+            } else {
+                OutDate.setDate(OutDate.getDate() + 1);
+            }
             Input.value = okDate.format(OutDate, endian);
+            Input.className = Input.className.replace(okDate.errorClass, '');
             break;
  
         case 40: // down
             OutDate = okDate(Input.value || 'today', endian);
-            OutDate.setDate(OutDate.getDate() - 1);
+            if (false === OutDate) {
+                break;
+            }
+            if (event.shiftKey) {
+                OutDate.setMonth(OutDate.getMonth() - 1);
+            } else {
+                OutDate.setDate(OutDate.getDate() - 1);
+            }
             Input.value = okDate.format(OutDate, endian);
+            Input.className = Input.className.replace(okDate.errorClass, '');
             break;
  
         case 39: // right
-            if (Input.value != '') {
-                break;
+            if ('' == Input.value) {
+                Input.value = okDate.format(new Date(), endian);
             }
-            OutDate = okDate('today', endian);
-            Input.value = okDate.format(OutDate, endian);
             break;
     }
     return true;

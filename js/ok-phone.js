@@ -10,7 +10,7 @@
  * latest version available at https://github.com/tyleruebele/jOkay
  *
  * Attaches itself to elements indicated in `okPhone.query`
- * Manually attach to elements by adding `onchange="okPhone.input"`
+ * Manually attach to elements by adding `onchange="okPhone.blur"`
  * Validate phone string by calling `okPhone()`
  * Style errors by styling class in `okPhone.errorClass`
  *
@@ -110,7 +110,7 @@ function okPhone(phone, beStrict, beWordy) {
  * @param beStrict
  * @param beWordy
  */
-okPhone.input = function(Input, beStrict, beWordy) {
+okPhone.blur = function(event, Input, beStrict, beWordy) {
     // If beStrict was not passed, seek counter-indicative className
     if ('undefined' === typeof beStrict) {
         beStrict = !!Input.className.match(/js-ok-phone-strict/);
@@ -139,9 +139,16 @@ okPhone.init = function() {
     // Find all specified inputs
     var Inputs = document.querySelectorAll(okPhone.query);
     for (var i = Inputs.length - 1; i >= 0; i--) {
-        Inputs[i].addEventListener('blur', function() {
-            okPhone.input(this);
-        });
+        if (window.addEventListener) {
+            Inputs[i].addEventListener('blur', function(event) {
+                okPhone.blur(event, this);
+            });
+        } else if (window.attachEvent) {
+            Inputs[i].attachEvent('onblur', function(event) {
+                event = event || window.event;
+                okPhone.blur(event, event.target || event.srcElement);
+            });
+        }
     }
 };
 

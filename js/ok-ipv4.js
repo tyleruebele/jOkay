@@ -99,9 +99,19 @@ okIPv4.init = function() {
     // Find all specified inputs
     var Inputs = document.querySelectorAll(okIPv4.query);
     for (var i = Inputs.length - 1; i >= 0; i--) {
-        Inputs[i].addEventListener('blur', function(event) {
-            okIPv4.blur(event, this);
-        });
+        // If the browser supports ipv4 inputs, don't interfere
+        if ('text' == Inputs[i].type) {
+            if (window.addEventListener) {
+                Inputs[i].addEventListener('blur', function(event) {
+                    okIPv4.blur(event, this);
+                });
+            } else if (window.attachEvent) {
+                Inputs[i].attachEvent('onblur', function(event) {
+                    event = event || window.event;
+                    okIPv4.blur(event, event.target || event.srcElement);
+                });
+            }
+        }
     }
 };
 
