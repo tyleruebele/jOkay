@@ -36,7 +36,7 @@ function okTime(inTime) {
         okTime.errno = 4;
         return false;
     }
-    
+
     // Now
     if (/^now/i.exec(inTime)) {
         return OutTime;
@@ -49,7 +49,7 @@ function okTime(inTime) {
         OutTime.setHours(12);
         return OutTime;
     }
-    
+
     // Midnight
     if (new RegExp('^' + inTime, 'i').test('midnight')) {
         OutTime.setSeconds(0);
@@ -87,7 +87,7 @@ function okTime(inTime) {
         OutTime.setSeconds(second || 0);
         OutTime.setMinutes(minute || 0);
         OutTime.setHours(hour);
-        
+
         return OutTime;
     }
 
@@ -217,7 +217,7 @@ okTime.key = function(event, Input, be24) {
             }
             break;
     }
-    
+
     return true;
 };
 
@@ -263,7 +263,7 @@ okTime.format = function(InTime, be24) {
     var minutes = String(InTime.getMinutes());
     var seconds = String(InTime.getSeconds());
     var meridiem = '';
-  
+
     if (!be24) {
         meridiem = hours > 11 ? 'pm' : 'am';
         hours %= 12;

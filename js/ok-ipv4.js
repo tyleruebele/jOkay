@@ -50,8 +50,8 @@ function okIPv4(ipv4, beStrict) {
 
     if (beStrict
         && (127 == parts[1] // Loopback
-            || 0 == parts[1] || 0 == parts[4] 
-            || 255 == parts[1] || 255 == parts[2] 
+            || 0 == parts[1] || 0 == parts[4]
+            || 255 == parts[1] || 255 == parts[2]
             || 255 == parts[3] || 255 == parts[4] // Broadcast
             || 10 == parts[1] // Class A private
             || (172 == parts[1] && 16 <= parts[2] && 31 >= parts[2]) // Class B private

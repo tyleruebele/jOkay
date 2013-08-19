@@ -48,7 +48,7 @@ function okPhone(phone, beStrict, beWordy) {
         phone = phone.replace(/[t-v]/ig, '8');
         phone = phone.replace(/[w-z]/ig, '9');
     }
-    
+
     // Reject letters
     if (/[a-z]/i.exec(phone)) {
         okPhone.errno = 1;
@@ -70,7 +70,7 @@ function okPhone(phone, beStrict, beWordy) {
     }
 
     // Full american phone number
-    if (phone.length == 10) { 
+    if (phone.length == 10) {
         if (beStrict && !okPhone.areaCodes[phone.substr(0, 3)]) {
             okPhone.errno = 3;
             return false;

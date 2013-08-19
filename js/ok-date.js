@@ -24,7 +24,7 @@
 
 /**
  * Core function which validates date strings
- * 
+ *
  * @param inDate String to parse as date
  * @param endian Date part order: {YMD,DMY,MDY}
  * @returns {*}
@@ -66,12 +66,12 @@ function okDate(inDate, endian) {
      */
     var bits;
     var month;
-    
+
     // nth
     if (bits = /^(\d{1,2})(?:st|nd|rd|th)?$/i.exec(inDate)) {
         month = OutDate.getMonth();
         OutDate.setDate(parseInt(bits[1], 10));
-    
+
         if (month != OutDate.getMonth()) {
             okDate.errno = 1;
             return false;
@@ -84,7 +84,7 @@ function okDate(inDate, endian) {
         OutDate.setDate(1);
         OutDate.setMonth(month = okDate.month(bits[2]));
         OutDate.setDate(parseInt(bits[1], 10));
-    
+
         if (false === month) {
             okDate.errno = 3;
             return false;
@@ -218,7 +218,7 @@ function okDate(inDate, endian) {
         OutDate.setDate(OutDate.getDate() + addDays);
         return OutDate;
     }
-    
+
 
     /*
      * Common Numeric formats
@@ -237,7 +237,7 @@ function okDate(inDate, endian) {
         }
         OutDate.setMonth(month = parseInt(bits[2], 10) - 1); // Because months indexed from 0
         OutDate.setDate(parseInt(bits[1], 10));
-        
+
         if (month >= 12) {
             okDate.errno = 3;
             return false;
@@ -255,7 +255,7 @@ function okDate(inDate, endian) {
         OutDate.setFullYear(parseInt(bits[1], 10));
         OutDate.setMonth(month = parseInt(bits[2], 10) - 1); // Because months indexed from 0
         OutDate.setDate(parseInt(bits[3], 10));
-        
+
         if (month >= 12) {
             okDate.errno = 3;
             return false;
@@ -267,7 +267,7 @@ function okDate(inDate, endian) {
         return OutDate;
     }
 
-    
+
     var milli;
     // now that I've checked what and how I want to check, let the JS API try what's left.
     if (milli = Date.parse(inDate)) {
@@ -281,7 +281,7 @@ function okDate(inDate, endian) {
 
 /**
  * Convert year of various notation to full year
- * 
+ *
  * @param year Year to convert
  * @returns {number} Converted year
  */
@@ -320,7 +320,7 @@ okDate.month = function(month) {
     if (matches.length != 1) {
         return false;
     }
-    
+
     return okDate.months.indexOf(matches[0]);
 };
 
@@ -335,7 +335,7 @@ okDate.weekdays = [
 
 /**
  * Takes a string, returns the index of the weekday matching that string
- * 
+ *
  * @param weekday
  * @returns {*}
  */
@@ -346,7 +346,7 @@ okDate.weekday = function(weekday) {
     if (matches.length != 1) {
         return false;
     }
-    
+
     return okDate.weekdays.indexOf(matches[0]);
 };
 
@@ -477,7 +477,7 @@ okDate.key = function(event, Input, endian) {
             Input.value = okDate.format(OutDate, endian);
             Input.className = Input.className.replace(okDate.errorClass, '');
             break;
- 
+
         case 40: // down
             OutDate = okDate(Input.value || 'today', endian);
             if (false === OutDate) {
@@ -491,7 +491,7 @@ okDate.key = function(event, Input, endian) {
             Input.value = okDate.format(OutDate, endian);
             Input.className = Input.className.replace(okDate.errorClass, '');
             break;
- 
+
         case 39: // right
             if ('' == Input.value) {
                 Input.value = okDate.format(new Date(), endian);
@@ -514,7 +514,7 @@ okDate.format = function(InDate, endian) {
     var date  = String(InDate.getDate());
     month = 1 === month.length ? '0' + month : month;
     date  = 1 === date.length  ? '0' + date  : date;
-    
+
     // Reformat date according to specified endian format
     if ('mdy' == endian) {
         return month + '/' + date + '/' + year;
