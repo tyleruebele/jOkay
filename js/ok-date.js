@@ -435,9 +435,14 @@ okDate.blur = function(event, Input, endian) {
     }
 
     Input.className = Input.className.replace(okDate.errorClass, '');
+    Input.title = '';
+    if ('' == Input.value.replace(/^\s+|\s+$/g, '')) {
+        return;
+    }
 
     var OutDate = okDate(Input.value, endian);
-    if ('' != Input.value && false === OutDate) {
+
+    if (false === OutDate) {
         Input.title = okDate.errors[okDate.errno];
         Input.className += ' ' + okDate.errorClass;
     } else {

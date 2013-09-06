@@ -81,9 +81,14 @@ okIPv4.blur = function(event, Input, beStrict) {
     }
 
     Input.className = Input.className.replace(okIPv4.errorClass, '');
+    Input.title = '';
+    if ('' == Input.value.replace(/^\s+|\s+$/g, '')) {
+        return;
+    }
 
     var ipv4 = okIPv4(Input.value, beStrict);
-    if ('' != Input.value && false === ipv4) {
+
+    if (false === ipv4) {
         Input.title = okIPv4.errors[okIPv4.errno];
         Input.className += ' ' + okIPv4.errorClass;
     } else {

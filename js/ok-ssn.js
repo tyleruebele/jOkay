@@ -122,9 +122,14 @@ okSSN.blur = function(event, Input, beStrict) {
     }
 
     Input.className = Input.className.replace(okSSN.errorClass, '');
+    Input.title = '';
+    if ('' == Input.value.replace(/^\s+|\s+$/g, '')) {
+        return;
+    }
 
     var ssn = okSSN(Input.value, beStrict);
-    if ('' != Input.value && false === ssn) {
+
+    if (false === ssn) {
         Input.title = okSSN.errors[okSSN.errno];
         Input.className += ' ' + okSSN.errorClass;
     } else {

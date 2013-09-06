@@ -121,9 +121,14 @@ okPhone.blur = function(event, Input, beStrict, beWordy) {
     }
 
     Input.className = Input.className.replace(okPhone.errorClass, '');
+    Input.title = '';
+    if ('' == Input.value.replace(/^\s+|\s+$/g, '')) {
+        return;
+    }
 
     var phone = okPhone(Input.value, beStrict, beWordy);
-    if ('' != Input.value && false === phone) {
+
+    if (false === phone) {
         Input.title = okPhone.errors[okPhone.errno];
         Input.className += ' ' + okPhone.errorClass;
     } else {

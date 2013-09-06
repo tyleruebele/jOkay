@@ -156,9 +156,14 @@ okEmail.blur = function(event, Input, beStrict, beStricter) {
     }
 
     Input.className = Input.className.replace(okEmail.errorClass, '');
+    Input.title = '';
+    if ('' == Input.value.replace(/^\s+|\s+$/g, '')) {
+        return;
+    }
 
     var email = okEmail(Input.value, beStrict, beStricter);
-    if ('' != Input.value && false === email) {
+
+    if (false === email) {
         Input.title = okEmail.errors[okEmail.errno];
         Input.className += ' ' + okEmail.errorClass;
     } else {

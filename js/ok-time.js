@@ -150,13 +150,14 @@ okTime.blur = function(event, Input, be24) {
         be24 = !!Input.className.match(/js-ok-time-24/);
     }
 
+    Input.className = Input.className.replace(okTime.errorClass, '');
+    Input.title = '';
     if ('' == Input.value.replace(/^\s+|\s+$/g, '')) {
         return;
     }
 
-    Input.className = Input.className.replace(okTime.errorClass, '');
-
     var OutTime = okTime(Input.value);
+
     if (false === OutTime) {
         Input.title = okTime.errors[okTime.errno];
         Input.className += ' ' + okTime.errorClass;
