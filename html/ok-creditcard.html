@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Demo for ok-creditcard.js</title>
+    <script type="text/javascript" src="../min.js/ok-creditcard.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../min.css/ok-creditcard.min.css">
+    <style type="text/css">
+        input {
+            background-color: #F0F0FA;
+            width: 250px;
+        }
+
+        .js-ok-creditcard-error.bold {
+            font-weight: bold;
+            border: 2px dashed red;
+            background: #F0F0FA;
+        }
+
+        .js-ok-creditcard-error.italic {
+            font-style: italic;
+            border: 2px dotted darkred;
+            background: #F0F0FA;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Demo for ok-creditcard.js</h1>
+</header>
+
+<section id="body">
+    <h2>ok-creditcard</h2>
+    <p>A pure JavaScript (no dependencies) solution to make HTML creditcard inputs self-validating</p>
+
+    <h2>Usage</h2>
+    <ol>
+        <li>Include ok-creditcard.js anywhere in your page, it runs on load.</li>
+        <li>Add CSS class 'js-ok-creditcard' to all creditcard inputs you want validated.</li>
+        <li>Optionally include ok-creditcard.css (or its contents) in your styles.</li>
+    </ol>
+
+    <h2>Support</h2>
+    <ul>
+        <li>Tested successfully in FireFox Win/Mac.</li>
+        <li>Tested successfully in Chrome Win/Mac.</li>
+        <li>Tested successfully in Safari Win/Mac.</li>
+        <li>Tested successfully in Internet Explorer 8.</li>
+    </ul>
+
+    <h2>License</h2>
+    <p>Released under MIT license, see included file LICENSE
+        or http://opensource.org/licenses/MIT</p>
+
+    <form action="#">
+        <h2>Basic Usage</h2>
+        <p>The basic credit card validation functionality can be added simply by
+            including <b>ok-creditcard.js</b> anywhere in your document and
+            adding CSS class 'js-ok-creditcard' or type 'creditcard' to all inputs
+            you want validating. HTML5 does not specify a type for credit cards,
+            so browsers will treat them as type 'text'.
+            It works like this:</p>
+
+        <p>
+            <label><input type="text" class="js-ok-creditcard"
+                          value="4567890123456789">
+                class="js-ok-creditcard"</label>
+            <br/>
+            <label><input type="creditcard"
+                          value="4567-8901 2345 6783">
+                type="creditcard"</label>
+        </p>
+
+        <h2>Advanced Usage</h2>
+
+        <p>By default, credit cards are checked against all known (to me)
+            types.  You can customize which cards are supported by manipulating
+            <code>okCreditCard.Types</code> at any time.</p>
+
+        <h2>Styling Errors</h2>
+        <p>Inputs with invalid values can be styled by applying styles to the
+            error class. By default this class is 'js-ok-creditcard-error'.
+        </p>
+
+        <p>
+            <label><input type="text" value="456789012345678"
+                          class="js-ok-creditcard js-ok-creditcard-error bold">
+                .js-ok-creditcard-error {
+                font-weight: bold; border: 2px dashed red;
+                }</label>
+            <br/>
+            <label><input type="text" value="456789012345678"
+                          class="js-ok-creditcard js-ok-creditcard-error italic">
+                .js-ok-creditcard-error {
+                font-style: italic; border: 2px dotted darkred;
+                }</label>
+        </p>
+    </form>
+</section>
+<footer>
+</footer>
+</body>
+</html>
