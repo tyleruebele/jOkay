@@ -138,6 +138,35 @@ function okEmail(email, beStrict, beStricter) {
 }
 
 /**
+ * Validate an Email list
+ * Interprets whitespace, semicolons and commas as delimeters
+ * Returns cleaned list comma delimited
+ *
+ * @param list       The email address list to validate
+ * @param beStrict   Whether to require an internet domain
+ * @param beStricter Whether to require a known TLD
+ * @returns bool|string false on failure, email address on success
+ */
+okEmail.list = function(list, beStrict, beStricter) {
+    // Set defaults for strictness parameters
+    beStrict = 'undefined' !== typeof beStrict ? beStrict : true;
+    beStricter = 'undefined' !== typeof beStricter ? beStricter : false;
+
+    list = list.replace(/[\s;,]+/g, ',').split(',');
+    var email;
+    var newList = [];
+    for (var i = 0; i < list.length; i++) {
+        email = okEmail(list[i], beStrict, beStricter);
+        if (false === email) {
+            return false;
+        }
+        newList.push(email)
+    }
+
+    return newList.join(',');
+}
+
+/**
  * Input event handler, adds email validation to selected inputs
  *
  * @param event      JS Event object
@@ -154,6 +183,8 @@ okEmail.blur = function(event, Input, beStrict, beStricter) {
     if ('undefined' === typeof beStricter) {
         beStricter = !!Input.className.match(/js-ok-email-stricter/);
     }
+    // Should we accept a list of emails?
+    var doList = !!Input.className.match(/js-ok-email-list/);
 
     Input.className = Input.className.replace(okEmail.errorClass, '');
     Input.title = '';
@@ -161,7 +192,12 @@ okEmail.blur = function(event, Input, beStrict, beStricter) {
         return;
     }
 
-    var email = okEmail(Input.value, beStrict, beStricter);
+    var email;
+    if (doList) {
+        email = okEmail.list(Input.value, beStrict, beStricter);
+    } else {
+        email = okEmail(Input.value, beStrict, beStricter);
+    }
 
     if (false === email) {
         Input.title = okEmail.errors[okEmail.errno];
@@ -223,6 +259,7 @@ okEmail.errors = [
  * @type {string}
  */
 okEmail.query = 'input[type=email],'
+    + 'input.js-ok-email-list,'
     + 'input.js-ok-email,'
     + 'input.js-ok-email-looser,'
     + 'input.js-ok-email-strict,'
