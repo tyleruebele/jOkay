@@ -156,6 +156,9 @@ okEmail.list = function(list, beStrict, beStricter) {
     var email;
     var newList = [];
     for (var i = 0; i < list.length; i++) {
+        if ('' == list[i]) {
+            continue;
+        }
         email = okEmail(list[i], beStrict, beStricter);
         if (false === email) {
             return false;
@@ -260,6 +263,7 @@ okEmail.errors = [
  */
 okEmail.query = 'input[type=email],'
     + 'input.js-ok-email-list,'
+    + 'textarea.js-ok-email-list,'
     + 'input.js-ok-email,'
     + 'input.js-ok-email-looser,'
     + 'input.js-ok-email-strict,'
