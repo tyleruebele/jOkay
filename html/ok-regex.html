@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Demo for ok-regex.js</title>
+    <script type="text/javascript" src="../min.js/ok-regex.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../min.css/ok-regex.min.css">
+    <style type="text/css">
+        input {
+            background-color: #F0F0FA;
+            width: 250px;
+        }
+
+        .js-ok-regex-error.bold {
+            font-weight: bold;
+            border: 2px dashed red;
+            background: #F0F0FA;
+        }
+
+        .js-ok-regex-error.italic {
+            font-style: italic;
+            border: 2px dotted darkred;
+            background: #F0F0FA;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Demo for ok-regex.js</h1>
+</header>
+
+<section id="body">
+    <h2>ok-regex</h2>
+    <p>A pure JavaScript (no dependencies) solution to make HTML regex inputs self-validating</p>
+
+    <h2>Usage</h2>
+    <ol>
+        <li>Include ok-regex.js anywhere in your page, it runs on load.</li>
+        <li>Add CSS class 'js-ok-regex' to all regex inputs you want validated.</li>
+        <li>Optionally include ok-regex.css (or its contents) in your styles.</li>
+    </ol>
+
+    <h2>Limitations</h2>
+    <p>This validator uses a small collection of simple regular expressions to
+        ensure valid delimiters and modifiers, but does not deeply inspect the
+        subject.  False readings are possible.  I abstained from using
+        Javascript's own RegExp object to validate the pattern as the pattern
+        may be intended for use in another language.
+    </p>
+
+    <h2>Support</h2>
+    <ul>
+        <li>Tested successfully in FireFox Win/Mac.</li>
+        <li>Tested successfully in Chrome Win/Mac.</li>
+        <li>Tested successfully in Safari Win/Mac.</li>
+        <li>Tested successfully in Internet Explorer 8.</li>
+    </ul>
+
+    <h2>License</h2>
+    <p>Released under MIT license, see included file LICENSE
+        or http://opensource.org/licenses/MIT</p>
+
+    <form action="#">
+        <h2>Basic Usage</h2>
+        <p>The basic regex validation functionality can be added simply by
+            including <b>ok-regex.js</b> anywhere in your document and
+            adding CSS class 'js-ok-regex' or type 'regex' to all inputs
+            you want validating. It works like this:</p>
+
+        <p>
+            <label><input type="text" class="js-ok-regex"
+                          value="/foo/i">
+                class="js-ok-regex"</label>
+            <br/>
+            <label><input type="regex"
+                          value="/bar/i">
+                type="tel"</label>
+        </p>
+
+        <h2>Styling Errors</h2>
+        <p>Inputs with invalid regexs can be styled by applying styles to the
+            error class. By default this class is 'js-ok-regex-error'.
+        </p>
+
+        <p>
+            <label><input type="text" value="fooi"
+                          class="js-ok-regex js-ok-regex-error bold">
+                .js-ok-regex-error {
+                font-weight: bold; border: 2px dashed red;
+                }</label>
+            <br/>
+            <label><input type="text" value="fooi"
+                          class="js-ok-regex js-ok-regex-error italic">
+                .js-ok-regex-error {
+                font-style: italic; border: 2px dotted darkred;
+                }</label>
+        </p>
+    </form>
+</section>
+<footer>
+</footer>
+</body>
+</html>
